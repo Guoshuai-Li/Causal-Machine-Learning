@@ -56,7 +56,3 @@ Y = 3*Z + 1*X + εY (outcome influenced by both)
 python week1_scm_basics.py
 ```
 
-## Next Steps
-
-- Week 2: Identification strategies (backdoor criterion)
-- Week 3: Instrumental variables and natural experiments
