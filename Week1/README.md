@@ -46,7 +46,7 @@ Y = 3*Z + 1*X + εY (outcome influenced by both)
 
 ## Files
 
-- `week1_scm_basics.py` - Main experiment code
+- `scm_basics.py` - Main experiment code
 - `results/scm_experiment_results.png` - Complete visualization output
 - `analysis.md` - Detailed findings and interpretation
 
