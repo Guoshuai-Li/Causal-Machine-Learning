@@ -53,6 +53,6 @@ Y = 3*Z + 1*X + εY (outcome influenced by both)
 ## How to Run
 
 ```bash
-python week1_scm_basics.py
+python scm_basics.py
 ```
 
