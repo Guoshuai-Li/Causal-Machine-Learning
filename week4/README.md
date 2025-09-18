@@ -1,4 +1,4 @@
-# Week 3 Practice 2: Front-door Identification and Counterfactual Reasoning
+# Week 4: Front-door Identification and Counterfactual Reasoning
 
 ## Overview
 This experiment demonstrates advanced causal inference techniques when backdoor adjustment fails due to unmeasured confounding, focusing on front-door identification and counterfactual reasoning using SCM framework.
