@@ -1,6 +1,3 @@
-# Week 3: Multivariate Intervention and Adjustment Methods
-# For graduate-level statistics students with causal ML introduction background
-
 import numpy as np
 import pandas as pd
 import networkx as nx
@@ -13,8 +10,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
 from itertools import combinations
-import warnings
-warnings.filterwarnings('ignore')
 
 np.random.seed(42)
 
@@ -382,16 +377,14 @@ class MultivariateInterventionPractice:
     
     def run_complete_experiment(self):
         """Run complete experimental pipeline"""
-        print("=== Week 3: Multivariate Intervention and Adjustment Methods ===\n")
         
         # 1. Generate DAG and data
-        print("1. Generating multivariate causal DAG...")
         data, dag = self.generate_multivariate_dag()
         print(f"   Generated DAG with {len(dag.nodes())} nodes and {len(dag.edges())} edges")
         print(f"   Sample size: {len(data)} observations")
         
         # 2. Visualize DAG
-        print("\n2. Visualizing DAG structure...")
+        print("\n2. Visualizing DAG structure")
         self.visualize_dag()
         
         # 3. Intervention vs conditioning comparison
