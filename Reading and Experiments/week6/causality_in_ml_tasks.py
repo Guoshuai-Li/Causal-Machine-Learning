@@ -1,6 +1,3 @@
-# Week 6: Causality in Machine Learning Tasks - Fixed Version
-# Corrected HSRM and Transfer Learning implementations
-
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
@@ -13,8 +10,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
 from scipy.linalg import pinv
-import warnings
-warnings.filterwarnings('ignore')
 
 np.random.seed(42)
 
@@ -685,47 +680,8 @@ class FixedCausalityInMLTasks:
         print("\n4. Generating corrected visualizations...")
         self.visualize_corrected_results()
         
-        # 5. Final Summary
-        print("\n5. Corrected Experimental Summary:")
-        print("="*70)
-        
-        print(f"CORRECTED HSRM:")
-        print(f"  • Standard regression average bias: {avg_biases['standard_regression']:.3f}")
-        print(f"  • HSRM average bias: {avg_biases['hsrm_regression']:.3f}")
-        print(f"  • Oracle average bias: {avg_biases['oracle_regression']:.3f}")
-        print(f"  • HSRM improvement: {hsrm_improvement:.1f}%")
-        if hsrm_improvement > 0:
-            print(f"  ✅ HSRM successfully reduces confounding bias")
-        else:
-            print(f"  ⚠️ HSRM shows limited improvement - may need stronger sibling relationships")
-        
-        print(f"\nCAUSAL BANDIT:")
-        print(f"  • Naive approach average bias: {naive_avg_bias:.3f}")
-        print(f"  • Causal approach average bias: {causal_avg_bias:.3f}")
-        print(f"  • Improvement: {bandit_improvement:.1f}%")
-        print(f"  ✅ IPW effectively removes selection bias")
-        
-        print(f"\nCORRECTED TRANSFER LEARNING:")
-        print(f"  • Standard transfer MSE: {transfer_results['standard_transfer_mse']:.4f}")
-        print(f"  • Best adapted MSE: {min(transfer_results['standardized_transfer_mse'], transfer_results['weighted_transfer_mse'], transfer_results['combined_transfer_mse']):.4f}")
-        print(f"  • Best improvement: {best_improvement:.2f}%")
-        if best_improvement > 5:
-            print(f"  ✅ Significant improvement through domain adaptation")
-        elif best_improvement > 0:
-            print(f"  ⚠️ Modest improvement - realistic for moderate domain shift")
-        else:
-            print(f"  ⚠️ Limited improvement - domain shift may be well-handled by standard methods")
-        
-        print("\n" + "="*70)
-        print("KEY INSIGHTS:")
-        print("• HSRM effectiveness depends on clear sibling relationships and confounding strength")
-        print("• Causal bandit methods consistently outperform when selection bias is present")
-        print("• Transfer learning improvements depend on degree of domain shift and adaptation strategy")
-        print("• Causal methods provide robustness even when improvements are modest")
-        
-        return self.results
 
-# Run corrected experiment
+# Run experiment
 if __name__ == "__main__":
     experiment = FixedCausalityInMLTasks()
     results = experiment.run_corrected_experiment()
