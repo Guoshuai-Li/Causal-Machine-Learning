@@ -86,7 +86,7 @@ Domain shifts: μ ∈ [-0.8, 1.2], σ ∈ [0.69, 1.60]
 ## How to Run
 
 ```bash
-python fixed_causality_ml_tasks.py
+python causality_ml_tasks.py
 ```
 
 ## Technical Notes
