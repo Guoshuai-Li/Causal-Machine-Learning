@@ -104,14 +104,14 @@ Tetrad constraint: Cov(X1,X2)*Cov(X3,X4) ≈ Cov(X1,X3)*Cov(X2,X4)
 
 ## Files
 
-- `week7_latent_and_instrumental_variables.py` - Complete implementation
-- `results/week7_iv_analysis.png` - Comprehensive visualization
-- `analysis_notes.md` - Detailed interpretation and findings
+- `latent_and_instrumental_variables.py` - Complete implementation
+- `experiment_results.png` - Comprehensive visualization
+- `analysis.md` - Detailed interpretation and findings
 
 ## How to Run
 
 ```bash
-python week7_latent_and_instrumental_variables.py
+python latent_and_instrumental_variables.py
 ```
 
 ## Technical Notes
