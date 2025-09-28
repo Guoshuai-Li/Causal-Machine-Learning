@@ -62,7 +62,6 @@ X → M → Y (mediation pathway)
 ## Files
 - `backdoor_and_interventions.py` - Main experiment code
 - `experiment_results.png` - DAG visualization and results
-- `analysis.md` - Detailed findings and interpretation
 
 ## How to Run
 ```bash
