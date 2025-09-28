@@ -1,4 +1,4 @@
-# Week 8: Time Series Causal Inference
+# Week 6: Time Series Causal Inference
 
 ## Overview
 This experiment explores causal inference methods specifically designed for time series data, examining how temporal structure enables causal discovery through Granger causality, VAR models, and dynamic intervention experiments.
