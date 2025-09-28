@@ -8,7 +8,6 @@ from scipy import stats
 np.random.seed(42)
 plt.rcParams['font.family'] = 'Arial'
 
-# ==================== 1. SCM Simulator ====================
 class SCMSimulator:
     def __init__(self, n=1000):
         self.n = n
@@ -33,7 +32,6 @@ class SCMSimulator:
         Y = 3 * Z + 1 * X + np.random.normal(0, 0.5, self.n)
         return pd.DataFrame({'Z': Z, 'X': X, 'Y': Y})
 
-# ==================== 2. Physical System Abstraction to SCM ====================
 def spring_system_scm():
     """Spring system: F → X → Y (Hooke's Law)"""
     n = 800
@@ -45,7 +43,6 @@ def spring_system_scm():
     
     return pd.DataFrame({'Force': F, 'Compression': X, 'Observed': Y})
 
-# ==================== 3. Verify Mechanism Invariance ====================
 def verify_invariance_correct():
     """
     Mechanism invariance test: In observational vs do(X=const) environments,
@@ -71,7 +68,6 @@ def verify_invariance_correct():
     
     return (betaX_A, betaZ_A), (betaX_B, betaZ_B)
 
-# ==================== 4. Observational Correlation vs Interventional Effects ====================
 def observational_vs_interventional():
     """Core experiment: Compare observational correlation vs interventional effects"""
     scm = SCMSimulator()
@@ -89,7 +85,6 @@ def observational_vs_interventional():
     
     return obs_data, obs_coef, causal_effect, int_data1, int_data2
 
-# ==================== 5. Visualization ====================
 def create_plots(obs_data, int_data1, int_data2, obs_coef, causal_effect):
     """Generate comparison plots"""
     fig, axes = plt.subplots(2, 2, figsize=(12, 10))
@@ -125,7 +120,6 @@ def create_plots(obs_data, int_data1, int_data2, obs_coef, causal_effect):
     plt.tight_layout()
     plt.show()
 
-# ==================== Main Program ====================
 def main():
     # 1. Basic SCM systems
     scm = SCMSimulator()
