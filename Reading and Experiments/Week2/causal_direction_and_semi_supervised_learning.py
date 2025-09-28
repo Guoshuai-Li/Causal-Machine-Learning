@@ -138,10 +138,9 @@ class CausalMLPractice:
     
     def run_complete_experiment(self):
         """Run complete experimental pipeline"""
-        print("=== Causal Machine Learning Practice Experiment ===\n")
         
         # 1. Generate data
-        print("1. Generating causal data...")
+        print("1. Generating causal data")
         (X1, Y1), (X2, Y2) = self.generate_causal_data()
         print(f"   Dataset 1: {len(X1)} samples")
         print(f"   Dataset 2: {len(X2)} samples")
