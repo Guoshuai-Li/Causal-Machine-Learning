@@ -80,7 +80,7 @@ Domain shifts: μ ∈ [-0.8, 1.2], σ ∈ [0.69, 1.60]
 ## Files
 
 - `fixed_causality_ml_tasks.py` - Complete experimental implementation
-- `week6_causality_results.png` - Comprehensive visualization
+- `experiment_results.png` - Comprehensive visualization
 
 ## How to Run
 
