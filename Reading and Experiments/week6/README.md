@@ -1,4 +1,4 @@
-# Week 6: Causality in Machine Learning Tasks
+# Week 5: Causality in Machine Learning Tasks
 
 ## Overview
 
