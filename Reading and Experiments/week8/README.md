@@ -64,7 +64,6 @@ Sample size: 500 time points
 ## Files
 - `timeseries_causality.py` - Main experiment code
 - `experiment_results.png` - Time series plots and causal analysis results
-- `analysis.md` - Detailed findings and interpretation
 
 ## How to Run
 ```bash
