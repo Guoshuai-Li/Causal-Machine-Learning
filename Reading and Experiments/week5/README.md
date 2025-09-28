@@ -1,71 +1,96 @@
-# Week 5: Causal Structure Learning
+# Week 5: Causality in Machine Learning Tasks
 
 ## Overview
-This experiment explores computational methods for discovering causal structures from observational data, comparing constraint-based and score-based approaches while examining their fundamental limitations and assumptions.
+
+This experiment explores the application of causal inference principles to three core machine learning challenges: confounding bias removal, policy evaluation under selection bias, and domain adaptation. The implementation demonstrates both the power and limitations of causal methods in realistic scenarios.
 
 ## Learning Objectives
-- Implement PC algorithm for conditional independence-based structure discovery
-- Apply GES algorithm using BIC scoring for causal graph search
-- Understand Markov equivalence classes and structural identifiability limits
-- Analyze faithfulness assumption violations and algorithm failure modes
+
+- Implement Half-Sibling Regression Model (HSRM) for confounding control
+- Apply Inverse Propensity Weighting (IPW) in contextual bandit settings
+- Design domain adaptation strategies based on causal invariance
+- Evaluate causal methods against standard machine learning approaches
 
 ## Experimental Setup
 
-### True DAG Structure
+### 1. Half-Sibling Regression Model (HSRM)
 ```
-Generated star-shaped DAG:
-X0 → X1 → {X2, X3, X4}
+Confounders: C1, C2 (unobserved genetic/environmental factors)
+Sibling pairs sharing confounders:
+- X1 (causal) ↔ X2 (non-causal) share C1
+- X3 (causal) ↔ X4 (non-causal) share C2
+Independent features: X5 (causal), X6 (non-causal)
 
-Edges: [('X0', 'X1'), ('X1', 'X2'), ('X1', 'X3'), ('X1', 'X4')]
-Variables: 5, Edges: 4, Sample size: 1000
+Y = 1.5*X1 + 0*X2 + 1.2*X3 + 0*X4 + 0.8*X5 + 0*X6 + confounding_effects
 ```
 
-### Key Questions
-1. **Constraint vs Score Methods**: How do PC and GES algorithms compare in structure recovery?
-2. **Markov Equivalence**: Which causal structures are fundamentally indistinguishable from data?
-3. **Faithfulness Violations**: When do standard assumptions fail and algorithms break down?
-4. **Sample Complexity**: How does data size affect structure learning performance?
+### 2. Causal Bandit Environment
+```
+Actions: {0, 1, 2} with true effects [2.0, 1.5, 1.0]
+Selection bias: P(action|context, confounder)
+Confounded rewards with unobserved confounder U
+```
+
+### 3. Transfer Learning Scenario
+```
+Source domain: X ~ N(0, 1)
+Target domain: X ~ N(μ_shift, σ_scale)
+Causal invariance: Same P(Y|X) across domains
+Domain shifts: μ ∈ [-0.8, 1.2], σ ∈ [0.69, 1.60]
+```
 
 ## Results Summary
 
-### Algorithm Performance Comparison
-- **PC Algorithm**: Precision=0.500, Recall=0.500, F1=0.500, SHD=4
-  - Learned: [X1→X0, X1→X4, X1→X3, X2→X1] (2/4 edges correct)
-  - Issue: Edge orientation errors due to simplified heuristics
-- **GES Algorithm**: Precision=1.000, Recall=1.000, F1=1.000, SHD=0
-  - Learned: [X0→X1, X1→X2, X1→X4, X1→X3] (perfect recovery)
-  - Success: Global BIC optimization overcame local independence test limitations
+### HSRM Performance
+- **Standard regression bias**: 0.356
+- **HSRM bias**: 0.351 
+- **Oracle bias**: 0.009
+- **Improvement**: 1.5%
+- **Key insight**: Modest improvement due to moderate confounding strength
 
-### Markov Equivalence Verification
-- **Chain A→B→C**: A⊥C|B = True (equivalent structures)
-- **Fork A←B→C**: A⊥C|B = True (equivalent structures)
-- **Collider A→B←C**: A⊥C|B = False (distinguishable structure)
+### Causal Bandit Results
+- **Naive approach bias**: 0.230
+- **Causal IPW bias**: 0.048
+- **Improvement**: 78.9%
+- **Key insight**: IPW effectively removes selection bias
 
-### Faithfulness Assumption Test
-- **Marginal independence**: X⊥Y = True (correlation = -0.004)
-- **Conditional dependence**: X⊥Y|Z = False
-- **Parameter cancellation**: X→Z(+0.698) vs Y→Z(-0.716) effects nearly cancel
-- **Algorithm impact**: Violates faithfulness, causing PC algorithm failures
-
-### Sample Size Effects
-- **Consistent PC performance**: Precision/Recall stable at 0.500 across n∈{100,500,1000,2000}
-- **No improvement trend**: Additional data did not resolve edge orientation issues
-- **Method limitation**: Systematic bias in simplified PC implementation
+### Transfer Learning Outcomes
+- **Standard transfer MSE**: 0.140
+- **Best adapted MSE**: 0.141
+- **Improvement**: -0.39% (negative)
+- **Key insight**: Standard methods handle moderate domain shift adequately
 
 ## Key Findings
-1. **Score-based superiority**: GES dramatically outperformed PC on this star structure (100% vs 50% accuracy)
-2. **Equivalence class reality**: Chain and fork structures genuinely indistinguishable from conditional independence patterns
-3. **Faithfulness fragility**: Carefully constructed parameter cancellation successfully broke standard assumptions
-4. **Sample complexity**: More data insufficient to overcome fundamental algorithmic limitations
+
+1. **Context-dependent effectiveness**: Causal methods excel when their target bias is present (selection bias) but show limited gains when confounding is moderate
+
+2. **Robust baseline performance**: Modern ML methods are surprisingly robust to moderate distribution shifts, limiting the gains from causal adaptation
+
+3. **Selection bias most addressable**: IPW consistently delivers substantial improvements in bandit settings where selection mechanisms create clear bias
+
+4. **HSRM requires strong confounding**: Half-sibling approaches need substantial shared confounding to demonstrate clear advantages over standard regression
+
+## Practical Implications
+
+- **Bandit applications**: Always use causal methods when selection bias is suspected
+- **Observational studies**: HSRM beneficial when sibling structures exist and confounding is strong  
+- **Domain adaptation**: Evaluate whether standard methods suffice before implementing complex causal approaches
+- **Method selection**: Match causal approach to specific bias type present in data
 
 ## Files
-- `structure_learning.py` - Main experiment code
-- `experiment_results.png` - CPDAG visualization
-- `analysis.md` - Detailed findings and interpretation
+
+- `causality_in_ml_tasks.py` - Complete experimental implementation
+- `experiment_results.png` - Comprehensive visualization
 
 ## How to Run
+
 ```bash
-python structure_learning.py
+python causality_ml_tasks.py
 ```
 
-**Requirements**: numpy, pandas, scikit-learn, matplotlib, networkx, scipy
+## Technical Notes
+
+- Uses Ridge regression for numerical stability in transfer learning
+- Implements correlation-based sibling identification for HSRM
+- Applies weight clipping in IPW to prevent extreme influence
+- Generates realistic domain shifts avoiding artificial performance gaps
