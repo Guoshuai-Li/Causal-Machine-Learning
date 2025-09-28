@@ -9,8 +9,6 @@ from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
-import warnings
-warnings.filterwarnings('ignore')
 
 np.random.seed(42)
 
