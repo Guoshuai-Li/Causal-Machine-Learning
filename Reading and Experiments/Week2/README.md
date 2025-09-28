@@ -53,7 +53,6 @@ X2 = 1.5*Y2 + 0.2*Y2² + ε2
 ## Files
 - `causal_direction_and_semi_supervised_learning.py` - Main experiment code
 - `experiment_results.png` - Visualization output
-- `analysis.md` - Detailed findings and interpretation
 
 ## How to Run
 ```bash
