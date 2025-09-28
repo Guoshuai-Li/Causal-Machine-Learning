@@ -62,7 +62,6 @@ Y = 0.7*Z + 0.9*U + εy
 ## Files
 - `frontdoor_cf_po.py` - Main experiment code
 - `experiment_results.png` - DAG visualization with corrected legend
-- `analysis.md` - Detailed findings and interpretation
 
 ## How to Run
 ```bash
