@@ -1,4 +1,4 @@
-## Question: Why is the empty set S mentioned? What does "invariance assumption" mean, and what is the meaning of "invariance" in the context of "empty set"?
+## Question: Why is the empty set S mentioned? And what is the meaning of "invariance" in the context of "empty set"?
 
 **Answer:** 
 
