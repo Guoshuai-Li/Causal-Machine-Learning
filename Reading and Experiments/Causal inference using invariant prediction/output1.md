@@ -19,7 +19,7 @@ We observe data from multiple environments $e \in \mathcal{E}$, each providing s
 Distributions may differ across environments, but causal mechanisms should remain stable.
 
 ## Core Assumption:
-There exists a subset $S^* \subseteq \\{1,...,p\\}$ such that
+There exists a subset $S^* \subseteq \lbrace 1,...,p \rbrace$ such that
 
 $$P(Y^e \mid X_{S^*}^e) = P(Y^{e'} \mid X_{S^*}^{e'}), \quad \forall e, e' \in \mathcal{E}.$$
 
@@ -35,7 +35,7 @@ The correct causal predictors $S^*$ make the conditional distribution of $Y$ inv
 Any subset missing a true parent breaks this invariance.
 
 ## Statistical Formulation:
-For every candidate set $S \subseteq \\{1,...,p\\}$, test the null hypothesis
+For every candidate set $S \subseteq \lbrace 1,...,p \rbrace$, test the null hypothesis
 
 $$H_{0,S}: P(Y^e \mid X_S^e) \text{ is identical across all } e \in \mathcal{E}.$$
 
