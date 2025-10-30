@@ -21,7 +21,7 @@ Distributions may differ across environments, but causal mechanisms should remai
 ## Core Assumption:
 There exists a subset $S^* \subseteq \{1, ..., p\}$ such that
 
-$$P(Y^e \mid X_{S^*}^e) = P(Y^{e'} \mid X_{S^*}^{e'}), \quad \forall e, e' \in \mathcal{E}.$$
+$$P(Y^e \mid X_{\{S^*\}}^e) = P(Y^{\{e'\}} \mid X_{\{S^*\}}^{\{e'\}}), \quad \forall e, e' \in \mathcal{E}.$$
 
 Equivalently, in a linear model
 
