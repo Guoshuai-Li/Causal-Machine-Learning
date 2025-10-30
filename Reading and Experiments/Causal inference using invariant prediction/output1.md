@@ -21,16 +21,16 @@ Distributions may differ across environments, but causal mechanisms should remai
 ## Core Assumption:
 There exists a subset $S^* \subseteq \{1, ..., p\}$ such that
 
-$$P(Y^e \mid X_{S^*}^e) = P(Y^{e'} \mid X_{S^*}^{e'}), \quad \forall e, e' \in \mathcal{E}.$$
+$$P(Y^e \mid X_{S^\*}^e) = P(Y^{e'} \mid X_{S^\*}^{e'}), \quad \forall e, e' \in \mathcal{E}.$$
 
 Equivalently, in a linear model
 
-$$Y^e = \mu + X^e \gamma^* + \varepsilon^e, \quad \varepsilon^e \sim F_\varepsilon, \varepsilon^e \perp X_{S^*}^e,$$
+$$Y^e = \mu + X^e \gamma^\* + \varepsilon^e, \quad \varepsilon^e \sim F_\varepsilon, \varepsilon^e \perp X_{S^\*}^e,$$
 
 where the noise distribution $F_\varepsilon$ is identical across environments.
 
 ## Key Idea:
-The correct causal predictors $S^*$ make the conditional distribution of $Y$ invariant under environment changes.
+The correct causal predictors $S^\*$ make the conditional distribution of $Y$ invariant under environment changes.
 
 Any subset missing a true parent breaks this invariance.
 
@@ -52,7 +52,7 @@ $$\hat{S} = \bigcap_{S: H_{0,S} \text{ not rejected}} S.$$
 ## Guarantees:
 If tests are valid at level $\alpha$, ICP ensures
 
-$$P(\hat{S} \subseteq S^*) \geq 1 - \alpha,$$
+$$P(\hat{S} \subseteq S^\*) \geq 1 - \alpha,$$
 
 meaning it will not include false causal variables.
 
