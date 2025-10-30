@@ -12,7 +12,7 @@
 
 - **Intuition:** Causal mechanisms are stable — exploiting this stability turns causality into a testable statistical property.
 
-# Invariant Causal Prediction (ICP) — Method Derivation (Self-contained)
+# Method Derivation
 
 ## Setup:
 We observe data from multiple environments $e \in \mathcal{E}$, each providing samples $(X^e, Y^e)$.
@@ -65,7 +65,7 @@ by searching for variable sets that make the conditional distribution of $Y$ sta
 
 it identifies direct causes with statistical guarantees.
 
-# Invariant Causal Prediction (ICP) — Theoretical Positioning and Unique Assumptions
+# Theoretical Positioning and Unique Assumptions
 
 ## Theoretical Foundation:
 
@@ -117,7 +117,7 @@ Can be applied in linear, nonlinear, or semi-parametric models as long as invari
 - Serves as a theoretical backbone for **distribution shift generalization** and **causal domain adaptation**.
 - Provides a robust inference framework used in genetics, economics, and other applied sciences.
 
-## Doctoral-Level Summary:
+## Summary:
 
 **ICP reframes causal discovery from "learning a DAG" to "testing stability across environments."**
 
