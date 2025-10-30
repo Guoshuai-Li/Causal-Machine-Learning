@@ -18,22 +18,22 @@
   Distributions may differ across environments, but causal mechanisms should remain stable.
 - **Core Assumption:**  
   There exists a subset $S^\* \subseteq \{1, \ldots, p\}$ such that  
-  $$
+  $
   P(Y^e \mid X^e_{S^\*}) = P(Y^{e'} \mid X^{e'}_{S^\*}), \quad \forall e, e' \in \mathcal{E}.
-  $$  
+  $  
   Equivalently, in a linear model  
-  $$
+  $
   Y^e = \mu + X^e \gamma^\* + \varepsilon^e, \quad \varepsilon^e \sim F_\varepsilon, \ \varepsilon^e \perp X^e_{S^\*},
-  $$  
+  $  
   where the noise distribution $F_\varepsilon$ is identical across environments.
 - **Key Idea:**  
   The correct causal predictors $S^\*$ make the conditional distribution of $Y$ invariant under environment changes.  
   Any subset missing a true parent breaks this invariance.
 - **Statistical Formulation:**  
   For every candidate set $S \subseteq \{1, \ldots, p\}$, test the null hypothesis  
-  $$
+  $
   H_{0,S}: P(Y^e \mid X^e_S) \text{ is identical across all } e \in \mathcal{E}.
-  $$  
+  $  
   In linear settings, this corresponds to testing whether regression coefficients and residual distributions are stable across environments.
 - **Algorithmic Procedure:**  
   1. For each subset $S$, fit regressions $Y^e \sim X^e_S$ for all environments.  
