@@ -64,3 +64,61 @@ ICP transforms the *philosophical principle* of causal invariance into a *testab
 by searching for variable sets that make the conditional distribution of $Y$ stable across environments,
 
 it identifies direct causes with statistical guarantees.
+
+# Invariant Causal Prediction (ICP) — Theoretical Positioning and Unique Assumptions
+
+## Theoretical Foundation:
+
+ICP is grounded in the *causal invariance principle* — the idea that causal mechanisms remain stable across environments or interventions that do not directly affect the target variable.
+
+This concept is rooted in the principles of **autonomy** and **modularity** from Structural Causal Models (SCMs):
+
+each causal mechanism behaves as an independent law of nature that stays unchanged when other mechanisms are perturbed.
+
+## Conceptual Shift:
+
+Unlike classical causal discovery methods that rely on *conditional independence* to recover the entire DAG,
+
+ICP focuses on a **single target variable** $Y$ and identifies its **direct causal parents** by exploiting invariance of $P(Y \mid X_S)$ across multiple environments.
+
+It converts a philosophical idea — *stability under change* — into a testable statistical property.
+
+## Comparison with Other Approaches:
+
+| Method Type | Core Assumption | Main Goal | ICP's Distinction |
+|-------------|-----------------|-----------|-------------------|
+| Constraint-based (e.g., PC, FCI) | Faithfulness + CI tests | Recover global DAG | ICP replaces faithfulness with invariance, focusing on one target |
+| Score-based (e.g., GES) | Comparable model scores | Optimize DAG structure | ICP avoids full graph search; targets causal parents of $Y$ |
+| Functional-based (e.g., LiNGAM, ANM) | Specific functional form (non-Gaussian / additive) | Identify causal directions | ICP is model-agnostic; works in both linear and nonlinear cases |
+| Potential Outcomes / IV | Known interventions ↓ | Estimate causal effect | ICP does not require known intervention targets |
+
+## Unique Assumptions and Strengths:
+
+### 1. Invariance instead of Faithfulness:
+
+Only assumes stability of $P(Y \mid X_{S^\*})$, not the presence of all independences in data.
+
+### 2. No Need for Known Interventions:
+
+Requires only an environment index $e$; interventions can be implicit or unknown.
+
+### 3. Statistical Validity:
+
+Provides confidence sets and intervals with explicit error control $(1 - \alpha)$.
+
+### 4. Model-Agnostic Design:
+
+Can be applied in linear, nonlinear, or semi-parametric models as long as invariance holds.
+
+## Why It Matters:
+
+- Operationalizes the invariance principle into a **statistical testing framework**.
+- Introduces **confidence in causal discovery**, making causal claims quantitatively reliable.
+- Serves as a theoretical backbone for **distribution shift generalization** and **causal domain adaptation**.
+- Provides a robust inference framework used in genetics, economics, and other applied sciences.
+
+## Doctoral-Level Summary:
+
+**ICP reframes causal discovery from "learning a DAG" to "testing stability across environments."**
+
+It adopts a weaker and more practical assumption — *invariance under interventions* — allowing statistically valid identification of causal predictors **without knowing the intervention targets**.
