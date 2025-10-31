@@ -9,6 +9,7 @@ It's because what they learn are **correlations**, not **causal relationships**.
 As soon as the data distribution shifts — maybe the policy changes, or we run a new experiment — those correlations fall apart.
 
 So, what we really want is to find the variables that have a **stable and causal** relationship with our target $Y$.
+
 ---
 
 ## 2. The Core Idea — Stability as a Signal of Causality
