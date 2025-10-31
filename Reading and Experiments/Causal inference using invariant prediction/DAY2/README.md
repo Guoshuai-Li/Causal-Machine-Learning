@@ -128,26 +128,6 @@ The residual plots provide visual evidence for the experimental conclusions:
 
 ---
 
-## Theoretical Interpretation
-
-### ICP's Core Principle
-**Invariance under intervention:** A variable S is a causal parent of Y if and only if the conditional distribution P(Y|S) remains invariant across different environments.
-
-### Success in Linear Case
-- X1 is the true parent → `P(Y|X1)` is invariant across all environments
-- X2 is independent → `P(Y|X1, X2) = P(Y|X1)` is also invariant
-- ICP correctly accepts both {1} and {1,2}, but rejects {2}
-
-### Failure in Nonlinear Case
-- True relationship: `Y = f(X1) + ε` where `f` is nonlinear
-- ICP's linear model: `Y = β×X1 + ε'`
-- Residuals `ε'` contain the nonlinear term → `ε' = f(X1) - β×X1`
-- Since `ε'` depends on X1, it varies across environments → invariance is violated
-- ICP correctly rejects all candidates (conservative behavior under model misspecification)
-
-**Key takeaway:** ICP's rejection of all sets in the nonlinear case is not a failure—it's a feature. The algorithm detects that its modeling assumptions are violated and refuses to make unreliable causal claims.
-
----
 
 ## Limitations of This Experiment
 
