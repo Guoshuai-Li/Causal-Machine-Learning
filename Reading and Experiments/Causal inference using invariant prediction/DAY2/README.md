@@ -1,4 +1,4 @@
-# ICP (Invariant Causal Prediction) Experiment
+# ICP Experiment
 
 ## Overview
 
@@ -21,12 +21,12 @@ X2 ⊥ Y  (independent variable, no relationship with Y)
 **Data Generation:**
 - `X1 ~ N(0, 1)` (causal parent)
 - `X2 ~ N(0, 1)` (independent variable)
-- `Y = 1.5 × X1 + ε`, where `ε ~ N(0, 0.3²)`
+- `Y = 1.5 × X1 + ε`, where `ε ~ N(0, 0.1²)`
 
 **Environments:**
 - Environment 1: Observational data
 - Environment 2: Shift intervention on X1 (mean +2.0)
-- Environment 3: Scale intervention on X1 (×1.5)
+- Environment 3: Scale intervention on X1 (×3)
 
 **Key insight:** The causal mechanism `X1 → Y` remains invariant (coefficient = 1.5) across all environments, while X2 has no relationship with Y in any environment.
 
@@ -68,8 +68,8 @@ Accepted sets: [[1], [1, 2]]
 ```
 
 **Interpretation:**
-- ✅ **{1}** (X1 alone) is accepted → ICP correctly identifies X1 as a valid causal parent
-- ⚠️ **{1, 2}** (X1 + X2) is also accepted → ICP conservatively accepts the superset
+- **{1}** (X1 alone) is accepted → ICP correctly identifies X1 as a valid causal parent
+- **{1, 2}** (X1 + X2) is also accepted → ICP conservatively accepts the superset
 
 **Why is {1, 2} accepted?**
 - X2 is independent of Y, so adding it doesn't violate invariance
@@ -77,7 +77,7 @@ Accepted sets: [[1], [1, 2]]
 - ICP accepts all invariant sets, not just minimal ones
 
 **Critical observation:** 
-- ❌ **{2}** (X2 alone) was implicitly rejected (not in accepted sets)
+- **{2}** (X2 alone) was implicitly rejected (not in accepted sets)
 - This confirms ICP successfully distinguishes between the causal variable (X1) and the independent variable (X2)
 
 **Residual Pattern:**
@@ -92,7 +92,7 @@ Accepted sets: []
 ```
 
 **Interpretation:**
-- ❌ ICP rejects **all** candidate sets, including {1}
+- ICP rejects **all** candidate sets, including {1}
 - This is **correct behavior** under model misspecification
 
 **Why does ICP fail?**
@@ -151,7 +151,7 @@ The residual plots provide visual evidence for the experimental conclusions:
 
 ## Limitations of This Experiment
 
-1. **Sample size:** 800 samples per environment may be insufficient for very weak effects
+1. **Sample size:** 2000 samples per environment may be insufficient for very weak effects
 2. **Environment diversity:** Only 3 environments; more environments could improve power
 3. **Simplicity:** Real-world causal structures are often more complex
 4. **Linearity assumption:** ICP requires correct model specification
@@ -162,8 +162,8 @@ The residual plots provide visual evidence for the experimental conclusions:
 
 | Scenario | ICP Result | Conclusion |
 |----------|------------|------------|
-| Linear SEM | Accepts {1}, {1,2} | ✅ Successfully identifies causal parent X1 |
-| Nonlinear SEM | Rejects all | ✅ Correctly detects model misspecification |
+| Linear SEM | Accepts {1}, {1,2} |  Successfully identifies causal parent X1 |
+| Nonlinear SEM | Rejects all |  Correctly detects model misspecification |
 
 **Summary:**
 - ICP reliably identifies causal relationships when its assumptions (linearity, invariance) are satisfied
@@ -204,7 +204,7 @@ Return all accepted sets S that pass the invariance test
 - **Coefficient stability:** Tests if regression coefficients are equal across environments
 - **Residual homogeneity:** Tests if residual variances are homogeneous (Levene's test)
 
-**Significance level:** α = 0.05 (default)
+**Significance level:** α = 0.1 
 - Higher α → more permissive (accepts more sets)
 - Lower α → more conservative (rejects more sets)
 
