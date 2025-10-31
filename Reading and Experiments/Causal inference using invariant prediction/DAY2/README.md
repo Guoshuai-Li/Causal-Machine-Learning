@@ -138,19 +138,6 @@ The residual plots provide visual evidence for the experimental conclusions:
 
 ---
 
-## Key Findings
-
-| Scenario | ICP Result | Conclusion |
-|----------|------------|------------|
-| Linear SEM | Accepts {1}, {1,2} |  Successfully identifies causal parent X1 |
-| Nonlinear SEM | Rejects all |  Correctly detects model misspecification |
-
-**Summary:**
-- ICP reliably identifies causal relationships when its assumptions (linearity, invariance) are satisfied
-- ICP fails gracefully under nonlinearity by rejecting all candidates rather than producing false positives
-- The residual plots provide intuitive diagnostic tools for understanding when and why ICP works or fails
-
----
 
 ## ICP Core Algorithm (Conceptual)
 
