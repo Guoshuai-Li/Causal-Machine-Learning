@@ -129,7 +129,6 @@ Return all accepted sets S that pass the invariance test
 
 The R implementation can be found at:
 - CRAN: https://cran.r-project.org/package=InvariantCausalPrediction
-- Paper: Peters, J., Bühlmann, P., & Meinshausen, N. (2016). "Causal inference by using invariant prediction: identification and confidence intervals." *Journal of the Royal Statistical Society: Series B*, 78(5), 947-1012.
 
 **Key functions:**
 ```r
