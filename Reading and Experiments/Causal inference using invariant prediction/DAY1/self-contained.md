@@ -1,7 +1,3 @@
-# Invariant Causal Prediction (ICP) — 10-Minute Talk Version
-
----
-
 ## 1. Why We Care
 
 Let's start with a simple question:
