@@ -165,26 +165,6 @@ d) If H0 is not rejected (p-value > α):
 ### 3. Output
 Return all accepted sets S that pass the invariance test
 
-### Key Implementation Details
-
-**Statistical Tests:**
-- **Coefficient stability:** Tests if regression coefficients are equal across environments
-- **Residual homogeneity:** Tests if residual variances are homogeneous (Levene's test)
-
-**Significance level:** α = 0.1 
-- Higher α → more permissive (accepts more sets)
-- Lower α → more conservative (rejects more sets)
-
-**Computational complexity:** O(2^p × E × n)
-- p: number of variables
-- E: number of environments  
-- n: sample size per environment
-
-### Why This Algorithm Works
-
-1. **Causal variables** have stable relationships with Y across environments → pass invariance test
-2. **Spurious correlates** have unstable relationships (due to confounding) → fail invariance test
-3. **Model misspecification** (e.g., nonlinearity) creates structured residuals → fail homogeneity test
 
 ---
 
