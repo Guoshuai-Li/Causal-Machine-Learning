@@ -212,35 +212,7 @@ This dual testing makes ICP robust to various forms of confounding and model mis
 
 ---
 
-## Files
 
-- `experiment.py` - Main experimental code
-- `icp_experiment_result.png` - Residual comparison plot
-- `README.md` - This documentation
-
----
-
-## How to Run
-
-### Prerequisites
-```bash
-# Python packages
-pip install numpy matplotlib scikit-learn rpy2
-
-# R package (run in R console)
-install.packages("InvariantCausalPrediction")
-```
-
-### Execution
-```bash
-python experiment.py
-```
-
-**Expected output:**
-- Console prints of ICP results for both experiments
-- Saved residual plot: `icp_experiment_result.png`
-
----
 
 ## Conclusion
 
@@ -259,9 +231,3 @@ This minimal experiment successfully demonstrates:
 - Careful residual diagnostics to validate assumptions
 
 ---
-
-## References
-
-1. Peters, J., Bühlmann, P., & Meinshausen, N. (2016). Causal inference by using invariant prediction: identification and confidence intervals. *Journal of the Royal Statistical Society Series B*, 78(5), 947-1012.
-
-2. R package documentation: https://cran.r-project.org/package=InvariantCausalPrediction
