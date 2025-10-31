@@ -28,7 +28,6 @@ X2 ⊥ Y  (independent variable, no relationship with Y)
 - Environment 2: Shift intervention on X1 (mean +2.0)
 - Environment 3: Scale intervention on X1 (×3)
 
-**Key insight:** The causal mechanism `X1 → Y` remains invariant (coefficient = 1.5) across all environments, while X2 has no relationship with Y in any environment.
 
 ### Experiment 2: Nonlinear SEM
 ```
@@ -49,12 +48,6 @@ X2 ⊥ Y  (independent)
 | `matplotlib` | Visualization of residual patterns |
 | `sklearn.linear_model` | Linear regression for residual analysis |
 
-### Why R's ICP Implementation?
-
-We use the original R implementation (`InvariantCausalPrediction` package by Peters et al.) via `rpy2` because:
-- It's the **authoritative implementation** by the algorithm's authors
-- Provides reliable statistical tests for invariance
-- Well-documented and widely validated
 
 ---
 
@@ -64,21 +57,8 @@ We use the original R implementation (`InvariantCausalPrediction` package by Pet
 
 **ICP Result:**
 ```
-Accepted sets: [[1], [1, 2]]
+Accepted sets: [1]
 ```
-
-**Interpretation:**
-- **{1}** (X1 alone) is accepted → ICP correctly identifies X1 as a valid causal parent
-- **{1, 2}** (X1 + X2) is also accepted → ICP conservatively accepts the superset
-
-**Why is {1, 2} accepted?**
-- X2 is independent of Y, so adding it doesn't violate invariance
-- The residuals of `Y ~ X1 + X2` remain invariant across environments
-- ICP accepts all invariant sets, not just minimal ones
-
-**Critical observation:** 
-- **{2}** (X2 alone) was implicitly rejected (not in accepted sets)
-- This confirms ICP successfully distinguishes between the causal variable (X1) and the independent variable (X2)
 
 **Residual Pattern:**
 - Random scatter around zero → confirms linearity assumption holds
@@ -91,10 +71,6 @@ Accepted sets: [[1], [1, 2]]
 Accepted sets: []
 ```
 
-**Interpretation:**
-- ICP rejects **all** candidate sets, including {1}
-- This is **correct behavior** under model misspecification
-
 **Why does ICP fail?**
 1. True model: `Y = 1.5×X1 + 0.5×X1²`
 2. ICP assumes: `Y = β×X1 + ε`
@@ -106,25 +82,6 @@ Accepted sets: []
 - Residuals are systematically negative near X1=0 and positive at extremes
 - Pattern is **not random** → evidence of nonlinearity
 - This structured residual pattern causes ICP to correctly reject the linear model
-
----
-
-## Visualization Analysis
-
-The residual plots provide visual evidence for the experimental conclusions:
-
-### Linear Case (Left Panel)
-- **Pattern:** Random scatter with no systematic structure
-- **Variance:** Approximately constant across X1 values
-- **Conclusion:** Linear model is appropriate; residuals support the invariance assumption
-
-### Nonlinear Case (Right Panel)
-- **Pattern:** Clear quadratic (parabolic) structure
-- **Shape:** Residuals form a U-curve (negative at center, positive at edges)
-- **Variance:** Non-constant, depends on X1
-- **Conclusion:** Linear model is misspecified; quadratic term is missing
-
-**Key insight:** The residual plot directly reveals why ICP fails in the nonlinear case—the linear model cannot capture the quadratic relationship, leading to structured (non-invariant) residuals.
 
 ---
 
@@ -211,7 +168,6 @@ for each candidate set S:
 This dual testing makes ICP robust to various forms of confounding and model misspecification.
 
 ---
-
 
 
 ## Conclusion
