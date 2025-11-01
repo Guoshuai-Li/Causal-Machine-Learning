@@ -15,10 +15,10 @@ Previous DG methods often assume **covariate shift**:
 > Across all tasks, the conditional distribution $P(Y \mid X)$ remains invariant, with differences only from changes in input distribution.
 
 However, this assumption is too restrictive. Inspired by causal reasoning, the authors propose a more relaxed assumption:
-> There exists only a subset of features $S^*$ such that $P(Y \mid X_{S^*})$ remains invariant across tasks.
+> There exists only a subset of features $S^\*$ such that $P(Y \mid X_{S^\*})$ remains invariant across tasks.
 
 This subset is called the **invariant subset**.
-From a causal perspective, if $X_{S^*}$ is the causal parent set of $Y$, then its conditional distribution naturally remains invariant under different environments or interventions.
+From a causal perspective, if $X_{S^\*}$ is the causal parent set of $Y$, then its conditional distribution naturally remains invariant under different environments or interventions.
 
 ---
 
@@ -28,7 +28,7 @@ The authors' theory is built on a linear regression framework and proposes three
 
 1. **(A1) Invariant Conditional**
    
-   There exists a subset $S^*$ such that the distribution of $Y^k | X^k_{S^*}$ is consistent across all training tasks.
+   There exists a subset $S^\*$ such that the distribution of $Y^k \mid X^k_{S^\*}$ is consistent across all training tasks.
 
 2. **(A1') Invariance to Test Task**
    
@@ -37,13 +37,13 @@ The authors' theory is built on a linear regression framework and proposes three
 
 3. **(A2) Linear Model**
    
-   $$Y^k = \alpha^\top X^k_{S^*} + \varepsilon^k, \quad \varepsilon^k \perp X^k_{S^*}, \quad \varepsilon^k \sim \varepsilon$$
+   $$Y^k = \alpha^\top X^k_{S^\*} + \varepsilon^k, \quad \varepsilon^k \perp X^k_{S^\*}, \quad \varepsilon^k \sim \varepsilon$$
    
    That is, on the invariant subset, there exists a linear relationship between output and input.
 
 These assumptions imply:
 
-Even if the overall $P(Y | X)$ varies across tasks, as long as we find a feature subset $S^*$ satisfying the invariance condition, the model can remain stable on unknown distributions.
+Even if the overall $P(Y \mid X)$ varies across tasks, as long as we find a feature subset $S^\*$ satisfying the invariance condition, the model can remain stable on unknown distributions.
 
 ---
 
@@ -57,12 +57,12 @@ $$\min_\beta \, \mathbb{E}_{P_T}[(Y^T - \beta^\top X^T)^2]$$
 
 Since the test distribution is not observable, the authors propose training using the invariant subset:
 
-$$\hat{\beta}_{CS}(S^*) = \arg\min_{\beta} \sum_{k=1}^D (Y^k - \beta^\top X^k_{S^*})^2$$
+$$\hat{\beta}_{CS}(S^\*) = \arg\min_{\beta} \sum_{k=1}^D (Y^k - \beta^\top X^k_{S^\*})^2$$
 
 The theoretical result (Theorem 1) shows:
 This estimator is **adversarially optimal** across all test distribution families satisfying (A1'), i.e.:
 
-$$\hat{\beta}_{CS}(S^*) = \arg\min_\beta \sup_{P_T \in \mathcal{P}} \mathbb{E}_{P_T}[(Y^T - \beta^\top X^T)^2]$$
+$$\hat{\beta}_{CS}(S^\*) = \arg\min_\beta \sup_{P_T \in \mathcal{P}} \mathbb{E}_{P_T}[(Y^T - \beta^\top X^T)^2]$$
 
 Furthermore, Proposition 2 proves:
 When differences between tasks increase (e.g., more severe interventions), this method has lower average error than models that directly pool all task data.
@@ -73,7 +73,7 @@ When differences between tasks increase (e.g., more severe interventions), this 
 
 When the target domain provides some labeled or unlabeled samples, the authors transform the problem into **missing data estimation**.
 The core idea is:
-- In source tasks, some features (non-$S^*$) are missing;
+- In source tasks, some features (non-$S^\*$) are missing;
 - In target tasks, some labels are missing.
 
 Through the **EM algorithm**, jointly optimize:
@@ -89,7 +89,7 @@ This method can combine "invariant knowledge" from training tasks with "local sa
 
 ### 3.3 Automatic Discovery of Invariant Subsets
 
-In practice, $S^*$ is unknown, so the authors propose search algorithms (Algorithm 1 & 2):
+In practice, $S^\*$ is unknown, so the authors propose search algorithms (Algorithm 1 & 2):
 1. Perform linear regression for each feature subset $S$;
 2. Calculate distribution differences of residuals across tasks;
 3. Use **Levene test** or **HSIC independence test** to determine if invariance is satisfied;
@@ -108,7 +108,7 @@ $$X_j = f_j(PA_j, N_j)$$
 
 and different tasks correspond to interventions on some $X_j$ without intervening on $Y$, then $P(Y \mid X_{PA_Y})$ remains invariant across all tasks.
 
-Therefore, $S^*$ satisfying (A1)-(A1') is the causal parent set of $Y$.
+Therefore, $S^\*$ satisfying (A1)-(A1') is the causal parent set of $Y$.
 
 This reveals:
 - **Invariant Conditional** reflects the stability of causal mechanisms;
