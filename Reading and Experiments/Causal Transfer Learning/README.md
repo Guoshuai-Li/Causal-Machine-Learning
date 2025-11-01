@@ -1,4 +1,5 @@
 # Invariant Models for Causal Transfer Learning 
+
 ---
 
 ## 1. Research Background and Problem
@@ -11,10 +12,10 @@ To address this issue, researchers have proposed **Transfer Learning** and **Dom
 - **Multi-task Learning (MTL)**: Target domain provides a small number of labeled samples.
 
 Previous DG methods often assume **covariate shift**:
-> Across all tasks, the conditional distribution $P(Y|X)$ remains invariant, with differences only from changes in input distribution.
+> Across all tasks, the conditional distribution $P(Y \mid X)$ remains invariant, with differences only from changes in input distribution.
 
 However, this assumption is too restrictive. Inspired by causal reasoning, the authors propose a more relaxed assumption:
-> There exists only a subset of features $S^*$ such that $P(Y|X_{S^*})$ remains invariant across tasks.
+> There exists only a subset of features $S^*$ such that $P(Y \mid X_{S^*})$ remains invariant across tasks.
 
 This subset is called the **invariant subset**.
 From a causal perspective, if $X_{S^*}$ is the causal parent set of $Y$, then its conditional distribution naturally remains invariant under different environments or interventions.
@@ -26,9 +27,11 @@ From a causal perspective, if $X_{S^*}$ is the causal parent set of $Y$, then it
 The authors' theory is built on a linear regression framework and proposes three core assumptions:
 
 1. **(A1) Invariant Conditional**
-   There exists a subset $S^*$ such that the distribution of $Y^k|X^k_{S^*}$ is consistent across all training tasks.
+   
+   There exists a subset $S^*$ such that the distribution of $Y^k | X^k_{S^*}$ is consistent across all training tasks.
 
 2. **(A1') Invariance to Test Task**
+   
    This invariance still holds for the test task.
    This is an extrapolation assumption that cannot be verified from training data.
 
@@ -39,8 +42,8 @@ The authors' theory is built on a linear regression framework and proposes three
    That is, on the invariant subset, there exists a linear relationship between output and input.
 
 These assumptions imply:
-Even if the overall $P(Y|X)$ varies across tasks, as long as we find a feature subset $S^*$ satisfying the invariance condition,
-the model can remain stable on unknown distributions.
+
+Even if the overall $P(Y | X)$ varies across tasks, as long as we find a feature subset $S^*$ satisfying the invariance condition, the model can remain stable on unknown distributions.
 
 ---
 
@@ -103,8 +106,8 @@ If data comes from the same structural equation model (SEM):
 
 $$X_j = f_j(PA_j, N_j)$$
 
-and different tasks correspond to interventions on some $X_j$ without intervening on $Y$,
-then $P(Y|X_{PA_Y})$ remains invariant across all tasks.
+and different tasks correspond to interventions on some $X_j$ without intervening on $Y$, then $P(Y \mid X_{PA_Y})$ remains invariant across all tasks.
+
 Therefore, $S^*$ satisfying (A1)-(A1') is the causal parent set of $Y$.
 
 This reveals:
