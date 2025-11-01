@@ -1,6 +1,4 @@
-# Invariant Models for Causal Transfer Learning — Study Notes
-*(Mateo Rojas-Carulla, Bernhard Schölkopf, Richard Turner, Jonas Peters, JMLR 2018)*
-
+# Invariant Models for Causal Transfer Learning 
 ---
 
 ## 1. Research Background and Problem
