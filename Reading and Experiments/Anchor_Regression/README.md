@@ -38,7 +38,7 @@ Suppose the training data is distributed across $\mathbb{E}_{train}$, where:
 Assuming the data arises from a Structural Equation Model (SEM):
 
 $$
-\left(\begin{array}{c} X \\ Y \\ H \end{array}\right) = B \left(\begin{array}{c} X \\ Y \\ H \end{array}\right) + \varepsilon + MA
+\begin{bmatrix} X \\ Y \\ H \end{bmatrix} = B \begin{bmatrix} X \\ Y \\ H \end{bmatrix} + \varepsilon + MA
 $$
 
 where $A$ is independent of $\varepsilon$, and $M$ is the **shift matrix**, describing how anchors affect the system.
