@@ -4,9 +4,9 @@
 
 ## 1. Research Background and Problem Motivation
 
-In real-world data from different sources, distributions often vary across batches or time points. As a result, **training and test sets may have non-i.i.d. distributions (non-i.i.d.)**.
+In real-world data from different sources, distributions often vary across batches or time points. As a result, **training and test sets may have non-i.i.d. distributions**.
 
-This heterogeneity **(heterogeneity)** causes models to perform poorly in new environments when following traditional stable methods **(Huber regression, mixed-effects models)** or simply pooling all data, which **lacks theoretically sufficient stability guarantees**.
+This **heterogeneity** causes models to perform poorly in new environments when following traditional stable methods **(Huber regression, mixed-effects models)** or simply pooling all data, which **lacks theoretically sufficient stability guarantees**.
 
 On the other hand, **Causal Models** possess **natural invariance to prediction shifts**:
 
