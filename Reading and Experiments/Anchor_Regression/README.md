@@ -51,7 +51,7 @@ Y \\
 H
 \end{pmatrix}
 + \varepsilon + MA
-
+```
 where $A$ is independent of $\varepsilon$, and $M$ is the **shift matrix**, describing how anchors affect the system.
 
 ---
