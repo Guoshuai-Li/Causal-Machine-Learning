@@ -41,7 +41,14 @@ $$\begin{pmatrix}
 X \\
 Y \\
 H \\
-\end{pmatrix} = B \begin{pmatrix} X \\ Y \\ H \end{pmatrix} + \varepsilon + MA,$$
+\end{pmatrix}$$
+$$= B$$
+$$\begin{pmatrix}
+X \\
+Y \\
+H \\
+\end{pmatrix}$$
+$$+ \varepsilon + MA,$$
 where $A$ is independent of $\varepsilon$, and $M$ is the **shift matrix**, describing how anchors affect the system.
 
 ---
