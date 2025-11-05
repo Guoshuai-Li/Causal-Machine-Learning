@@ -43,8 +43,7 @@ X \\
 Y \\ 
 H \\
 \end{pmatrix}
-=
-B
+= B
 \begin{pmatrix}
 X \\ 
 Y \\ 
