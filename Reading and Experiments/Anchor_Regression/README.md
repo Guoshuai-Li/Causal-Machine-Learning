@@ -1,6 +1,4 @@
-# Anchor Regression — Study Notes
-
-**Paper:** Rothenhäusler, Meinshausen, Bühlmann, Peters (2021). *Anchor regression: Heterogeneous data meet causality*. J. R. Stat. Soc. Series B, 83(2): 215–246.
+# Anchor Regression 
 
 ---
 
