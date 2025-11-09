@@ -45,7 +45,6 @@ Z(t) = 0.3 × Y(t-1) + ε_Z
 - Significance level: α = 0.05
 - Independence test: ParCorr (Partial Correlation)
 
-```
 
 ##  Experimental Results
 
