@@ -45,21 +45,6 @@ Z(t) = 0.3 × Y(t-1) + ε_Z
 - Significance level: α = 0.05
 - Independence test: ParCorr (Partial Correlation)
 
-### Workflow
-
-```
-Step 1: Data Generation
-    ├─ Generate 1000-step time series
-    └─ Visualize first 200 steps
-
-Step 2: PCMCI Analysis
-    ├─ Initialize PCMCI with ParCorr test
-    ├─ Run causal discovery (max_lag=5)
-    └─ Generate causal graph
-
-Step 3: Results Interpretation
-    ├─ Extract significant causal links (p < 0.05)
-    └─ Print p-values for detected relationships
 ```
 
 ##  Experimental Results
