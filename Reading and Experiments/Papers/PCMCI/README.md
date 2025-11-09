@@ -1,8 +1,4 @@
-# PCMCI Study Notes
-
-**Paper**: Jakob Runge, Peer Nowack, Marlene Kretschmer, Seth Flaxman, Dino Sejdinovic (2019).  
-*Detecting causal associations in large nonlinear time series datasets. Science Advances / arXiv:1702.07007v2*
-
+# PCMCI 
 ---
 
 ## 1. Research Background and Motivation
