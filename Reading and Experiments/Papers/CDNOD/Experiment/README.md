@@ -63,23 +63,7 @@ Y(t) = 0.5 × Y(t-1) + 0.6 × X(t-1) + ε_Y  [Y still unchanged]
 - Regime change points: t = 667, 1334
 - Significance level: α = 0.05
 
-### Workflow
-
-```
-Step 1: Data Generation
-    ├─ Generate 2000-step time series with regime changes
-    ├─ Create regime indicator array
-    └─ Visualize time series with regime boundaries
-
-Step 2: CDNOD Analysis
-    ├─ Pass data and regime indicators to CDNOD
-    └─ Extract causal graph
-
-Step 3: Results Interpretation
-    └─ Display detected causal links
-```
-
-## 📊 Experimental Results
+##  Experimental Results
 
 ### Detected Causal Links
 
