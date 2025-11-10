@@ -68,9 +68,7 @@ Y(t) = 0.5 × Y(t-1) + 0.6 × X(t-1) + ε_Y  [Y still unchanged]
 ### Detected Causal Links
 
 ```
-==================================================
 CDNOD RESULT
-==================================================
 
 Causal Graph:
 Graph Nodes: X1; X2; X3
@@ -79,7 +77,6 @@ Graph Edges:
 1. X1 --> X2
 2. X3 --> X2
 
-==================================================
 ```
 
 **Variable Mapping:**
