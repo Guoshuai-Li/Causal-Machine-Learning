@@ -1,5 +1,3 @@
-# CDNOD 
-
 ##  Libraries Used
 
 ### Core Dependencies
